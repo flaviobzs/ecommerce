@@ -1,12 +1,14 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import Image from '../Image'
+import React from "react";
+import { Link } from "gatsby";
+import Image from "../Image";
 
 const DisplayMedium = ({ imageSrc, title, subtitle, link }) => {
   return (
-    <div className="lg:w-flex-half
+    <div
+      className="lg:w-flex-half
     mb-4 lg:mb-0
-    bg-light p-8 pb-0 hover:bg-light-200">
+    bg-light rounded-lg p-8 pb-0 hover:bg-light-200"
+    >
       <Link to={`/${link}`}>
         <div className="flex flex-column justify-center items-center h-56">
           <Image src={imageSrc} alt={title} className="w-3/5" />
@@ -17,7 +19,7 @@ const DisplayMedium = ({ imageSrc, title, subtitle, link }) => {
         </div>
       </Link>
     </div>
-  )
-}
+  );
+};
 
 export default DisplayMedium;

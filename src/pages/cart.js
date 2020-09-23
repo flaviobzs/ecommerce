@@ -1,13 +1,13 @@
-import React from "react"
+import React from "react";
 
-import { SiteContext, ContextProviderComponent } from "../context/mainContext"
-import { DENOMINATION } from "../../providers/inventoryProvider"
-import { FaTimes, FaLongArrowAltRight } from "react-icons/fa"
-import { Link } from "gatsby"
-import CartLink from "../components/CartLink"
-import QuantityPicker from "../components/QuantityPicker"
-import { slugify } from "../../utils/helpers"
-import Image from "../components/Image"
+import { SiteContext, ContextProviderComponent } from "../context/mainContext";
+import { DENOMINATION } from "../../providers/inventoryProvider";
+import { FaTimes, FaLongArrowAltRight } from "react-icons/fa";
+import { Link } from "gatsby";
+import CartLink from "../components/CartLink";
+import QuantityPicker from "../components/QuantityPicker";
+import { slugify } from "../../utils/helpers";
+import Image from "../components/Image";
 
 const Cart = ({ context }) => {
   const {
@@ -16,18 +16,18 @@ const Cart = ({ context }) => {
     removeFromCart,
     total,
     setItemQuantity,
-  } = context
-  const cartEmpty = numberOfItemsInCart === Number(0)
+  } = context;
+  const cartEmpty = numberOfItemsInCart === Number(0);
 
   function increment(item) {
-    item.quantity = item.quantity + 1
-    setItemQuantity(item)
+    item.quantity = item.quantity + 1;
+    setItemQuantity(item);
   }
 
   function decrement(item) {
-    if (item.quantity === 1) return
-    item.quantity = item.quantity - 1
-    setItemQuantity(item)
+    if (item.quantity === 1) return;
+    item.quantity = item.quantity - 1;
+    setItemQuantity(item);
   }
 
   return (
@@ -49,12 +49,12 @@ const Cart = ({ context }) => {
           ) : (
             <div className="flex flex-col">
               <div className="">
-                {cart.map(item => {
+                {cart.map((item) => {
                   return (
                     <div className="border-b py-10" key={item.id}>
                       {/* Responsive - Desktop */}
                       <div className="flex items-center hidden md:flex">
-                        <Link to={slugify(item.name)}>
+                        <Link to={`/${slugify(item.name)}`}>
                           <Image
                             className="w-32 m-0"
                             src={item.image}
@@ -137,7 +137,7 @@ const Cart = ({ context }) => {
                         </div>
                       </div>
                     </div>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -161,17 +161,17 @@ const Cart = ({ context }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 function CartWithContext(props) {
   return (
     <ContextProviderComponent>
       <SiteContext.Consumer>
-        {context => <Cart {...props} context={context} />}
+        {(context) => <Cart {...props} context={context} />}
       </SiteContext.Consumer>
     </ContextProviderComponent>
-  )
+  );
 }
 
-export default CartWithContext
+export default CartWithContext;

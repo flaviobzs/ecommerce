@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 
-import SEO from "../components/seo"
+import SEO from "../components/seo";
 import {
   Center,
   Footer,
@@ -8,19 +8,19 @@ import {
   Showcase,
   DisplaySmall,
   DisplayMedium,
-} from "../components"
-import CartLink from "../components/CartLink"
-import { titleIfy, slugify } from "../../utils/helpers"
+} from "../components";
+import CartLink from "../components/CartLink";
+import { titleIfy, slugify } from "../../utils/helpers";
 
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
 const Home = ({ data: gqlData }) => {
   const {
     inventoryInfo,
     categoryInfo: { data },
-  } = gqlData
-  const categories = data.slice(0, 2)
-  const inventory = inventoryInfo.data.slice(0, 4)
+  } = gqlData;
+  const categories = data.slice(0, 2);
+  const inventory = inventoryInfo.data.slice(0, 4);
 
   return (
     <>
@@ -28,7 +28,7 @@ const Home = ({ data: gqlData }) => {
       <SEO title="Home" />
       <div className="w-full">
         <div
-          className="bg-green-200
+          className="bg-indigo-300 rounded-lg
         lg:h-hero
         p-6 pb-10 smpb-6
         flex lg:flex-row flex-col"
@@ -67,10 +67,9 @@ const Home = ({ data: gqlData }) => {
         />
       </div>
       <div className="pt-10 pb-6 flex flex-col items-center">
-        <h2 className="text-4xl mb-3">Trending Now</h2>
+        <h2 className="text-4xl mb-3">Compre agora!</h2>
         <p className="text-gray-600 text-sm">
-          Find the perfect piece or accessory to finish off your favorite room
-          in the house.
+          Encontre a presente perfeito para sua pessoa querida.
         </p>
       </div>
       <div className="my-8 flex flex-col lg:flex-row justify-between">
@@ -103,8 +102,8 @@ const Home = ({ data: gqlData }) => {
         />
       </div>
     </>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   query {
@@ -128,6 +127,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Home
+export default Home;
